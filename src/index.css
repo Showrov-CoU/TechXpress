@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btns {
+  @apply  px-5 md:px-9 py-2 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200;
+}
+.signbtn {
+  @apply  px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200;
+}
