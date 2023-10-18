@@ -8,7 +8,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);
-  console.log(brands);
+  // console.log(brands);
   return (
     <div>
       <h1 className="text-center text-3xl text-neutral font-bold">

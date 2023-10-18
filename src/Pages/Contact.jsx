@@ -1,6 +1,4 @@
-import PropTypes from "prop-types";
-
-const Contact = (props) => {
+const Contact = () => {
   return (
     <div>
       <h1>Contact</h1>
