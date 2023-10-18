@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-removebg.png";
 
 const Navbar = () => {
   const links = (
@@ -39,7 +39,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar">
+    <div className="navbar border-solid border-neutralDGrey bg-neutralSilver">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -73,7 +73,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Login</a>
+        <button className="signbtn">Login</button>
       </div>
     </div>
   );
