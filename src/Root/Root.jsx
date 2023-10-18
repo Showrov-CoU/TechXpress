@@ -4,9 +4,11 @@ import "../App.css";
 
 const Root = () => {
   return (
-    <div>
+    <div className="tracking-wider leading-relaxed text-neutralDGrey">
       <Navbar></Navbar>
-      <Outlet></Outlet>
+      <div className="mx-[5%]">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };
