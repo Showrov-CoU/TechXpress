@@ -7,7 +7,6 @@ import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  // const [registrationReload, setRegistrationReload] = useState(true);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -39,13 +38,14 @@ const Register = () => {
             console.log("profile Update");
             toast.success("Registration successful! You can now log in");
             e.target.reset();
-            navigate("/login");
+            // navigate("/login");
             // location.reload();
           })
           .catch((error) => {
             console.log(error.message);
             toast.success("Something is wrong! Please try again");
           });
+        navigate("/login");
       })
       .catch((error) => {
         toast.error(error.message);

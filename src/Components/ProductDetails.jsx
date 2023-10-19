@@ -14,7 +14,7 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((result) => setExistingCart(result));
   }, []);
-  console.log(existingCart);
+  // console.log(existingCart);
   const handleCart = (id) => {
     const exist = existingCart.find((cart) => cart._id === id);
     if (exist) {

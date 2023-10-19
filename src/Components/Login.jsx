@@ -1,21 +1,26 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  //   console.log(location);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
+    // console.log(email, password);
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
         toast.success("Login successful! Welcome back.");
         e.target.reset();
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error.message);
@@ -27,6 +32,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error.message);

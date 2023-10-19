@@ -1,10 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BrandCard from "../Components/BrandCard";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Home = () => {
-  const { name } = useContext(AuthContext);
-  console.log(name);
   const [brands, setBrands] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/brand")
