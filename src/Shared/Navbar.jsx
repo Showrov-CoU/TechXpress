@@ -1,7 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo-removebg.png";
-
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import defaultUserPhoto from "../assets/user.png";
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error.message));
+  };
+
   const links = (
     <>
       <li className="mr-5 text-base font-medium">
@@ -73,9 +83,30 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
+        {user ? (
+          <p className="text-sm font-semibold text-color-secondary mr-1">
+            {user.displayName}
+          </p>
+        ) : (
+          ""
+        )}
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full mr-1">
+            <img src={user ? user?.photoURL : defaultUserPhoto} />
+          </div>
+        </label>
+        {user ? (
+          <button onClick={handleLogout} className="btns px-2">
+            Logout
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btns px-2">Login</button>
+          </Link>
+        )}
+        {/* <Link to="/login">
           <button className="signbtn text-neutralSilver">Login</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
