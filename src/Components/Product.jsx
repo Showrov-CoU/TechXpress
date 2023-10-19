@@ -77,9 +77,11 @@ const Product = ({ product }) => {
               </Link>
             </div>
             <div className="card-actions justify-start">
-              <button className="signbtn text-neutralSilver">
-                Update Product
-              </button>
+              <Link to={`/update/${product._id}`}>
+                <button className="signbtn text-neutralSilver">
+                  Update Product
+                </button>
+              </Link>
             </div>
           </div>
         </div>
