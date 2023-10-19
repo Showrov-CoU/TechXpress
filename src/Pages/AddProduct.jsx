@@ -1,15 +1,73 @@
+import "sweetalert2/dist/sweetalert2.min.css";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+
 const AddProduct = () => {
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
-    const photo = form.photo.value;
-    const pName = form.pname.value;
-    const bName = form.bname.value;
+    const image = form.photo.value;
+    const productName = form.pname.value;
+    const brandName = form.bname.value;
     const type = form.type.value;
     const price = form.price.value;
     const rating = form.rating.value;
-    const desc = form.desc.value;
-    console.log(photo, pName, bName, type, price, rating, desc);
+    const description = form.desc.value;
+    console.log(
+      image,
+      productName,
+      brandName,
+      type,
+      price,
+      rating,
+      description
+    );
+
+    const newProduct = {
+      image,
+      productName,
+      brandName,
+      type,
+      price,
+      rating,
+      description,
+    };
+    // console.log(newProduct);
+    fetch("http://localhost:3000/product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Product added successfully...!",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              form.reset();
+            }
+          });
+        } else {
+          Swal.fire({
+            title: "Something is wrong! Please try again",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        }
+      });
   };
   return (
     <div className="space-y-2">
@@ -55,6 +113,7 @@ const AddProduct = () => {
           <option value="Headphone">Headphone</option>
           <option value="Watch">Watch</option>
           <option value="Camera">Camera</option>
+          <option value="HomePod Mini">HomePod Mini</option>
           <option value="Software">Software</option>
           <option value="Hardware">Hardware</option>
           <option value="SSD">SSD</option>
