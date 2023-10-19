@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import "../App.css";
+import { Toaster } from "react-hot-toast";
 
 const Root = () => {
   return (
@@ -9,6 +10,7 @@ const Root = () => {
       <div className="mx-[5%]">
         <Outlet></Outlet>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };
