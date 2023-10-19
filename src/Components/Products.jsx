@@ -1,14 +1,19 @@
+// import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+// import Product from "./Product";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import Product from "./Product";
 
 const Products = () => {
-  const loadProduct = useLoaderData();
+  const { brandName } = useParams();
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    setProducts(loadProduct);
-  }, [loadProduct]);
+    fetch(`http://localhost:3000/product/${brandName}`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [brandName]);
   console.log(products);
+
   return (
     <div>
       {products.length > 0 ? (

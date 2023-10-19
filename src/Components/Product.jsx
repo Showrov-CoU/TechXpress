@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Rating from "react-rating";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   return (
@@ -69,9 +70,11 @@ const Product = ({ product }) => {
           </div>
           <div className="flex items-center justify-between">
             <div className="card-actions justify-end">
-              <button className="signbtn  text-neutralSilver">
-                Details Product
-              </button>
+              <Link to={`/productdetails/${product._id}`}>
+                <button className="signbtn  text-neutralSilver">
+                  Details Product
+                </button>
+              </Link>
             </div>
             <div className="card-actions justify-start">
               <button className="signbtn text-neutralSilver">

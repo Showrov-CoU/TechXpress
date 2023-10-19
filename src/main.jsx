@@ -8,7 +8,9 @@ import Home from "./Pages/Home";
 import AddProduct from "./Pages/AddProduct";
 import MyCart from "./Pages/MyCart";
 import Contact from "./Pages/Contact";
-import Product from "./Components/Products";
+
+import ProductDetails from "./Components/ProductDetails";
+import Products from "./Components/Products";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +23,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:brandName",
-        element: <Product></Product>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/product/${params.brandName}`),
+        element: <Products></Products>,
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:3000/product/${params.brandName}`),
       },
+      {
+        path: "/productdetails/:id",
+        element: <ProductDetails></ProductDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/productdetails/${params.id}`),
+      },
+
       {
         path: "/addProduct",
         element: <AddProduct></AddProduct>,
