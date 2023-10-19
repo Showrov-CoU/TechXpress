@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleLogin } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -22,16 +22,15 @@ const Login = () => {
         toast.error(`Invalid Login Attempt
         Please double-check your email and password and try again`);
       });
-    // signIn(email, password)
-    //   .then((result) => {
-    //     console.log("hi", result.user);
-    //     toast.success("Login successful! Welcome back.");
-    //     e.target.reset();
-    //     Navigate(location?.state ? location.state : "/");
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error.message);
-    //   });
+  };
+  const handleGoogleLogIn = (googleLogin) => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <div className=" min-h-screen">
@@ -96,7 +95,7 @@ const Login = () => {
           </form>
           <div className="px-8 pb-6">
             <button
-              //onClick={() => handleGoogleLogIn(googleLogin)}
+              onClick={() => handleGoogleLogIn(googleLogin)}
               className="btn w-full capitalize btn-outline text-color-secondary text-base"
             >
               <FcGoogle></FcGoogle>
