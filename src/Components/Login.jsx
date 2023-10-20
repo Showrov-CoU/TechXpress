@@ -39,10 +39,10 @@ const Login = () => {
       });
   };
   return (
-    <div className=" min-h-screen">
+    <div className=" min-h-screen bg-white dark:bg-color-primary-light">
       <div className="hero-content flex-col pt-0">
         <div className="text-center pt-2">
-          <h1 className="text-3xl text-center font-bold text-neutralDGrey">
+          <h1 className="text-3xl text-center font-bold text-brandPrimary">
             Login now...!
           </h1>
           <p className="">
