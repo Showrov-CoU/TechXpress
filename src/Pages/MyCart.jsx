@@ -41,8 +41,8 @@ const MyCart = () => {
     });
   };
   return (
-    <div>
-      <h1 className="text-center text-3xl text-neutral font-bold">
+    <div className="pt-5 pb-10 px-[5%] min-h-[60vh] dark:bg-color-primary-light dark:text-neutralGrey">
+      <h1 className=" pb-2 text-center text-3xl font-bold">
         Total: {carts.length}
       </h1>
       <div className="overflow-x-auto">

@@ -12,15 +12,6 @@ const AddProduct = () => {
     const price = form.price.value;
     const rating = form.rating.value;
     const description = form.desc.value;
-    console.log(
-      image,
-      productName,
-      brandName,
-      type,
-      price,
-      rating,
-      description
-    );
 
     const newProduct = {
       image,
@@ -70,14 +61,17 @@ const AddProduct = () => {
       });
   };
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 dark:bg-color-primary-light pt-5 pb-10">
       {/* <h1 className="text-center text-3xl text-neutral font-bold">
         Add Products
       </h1> */}
-      <p className="text-center">
+      <p className="text-center text-brandPrimary">
         &quot;Enhance Your Catalog with New Offerings&quot;
       </p>
-      <form onSubmit={handleAddProduct} className="px-52 space-y-2">
+      <form
+        onSubmit={handleAddProduct}
+        className="px-[5%] md:px-32 lg:px-52 space-y-2 text-neutralDGrey"
+      >
         <input
           required
           type="text"
@@ -102,7 +96,7 @@ const AddProduct = () => {
         <select
           required
           name="type"
-          className="select select-success w-full block"
+          className="select select-success w-full block text-neutralDGrey"
         >
           <option value="0">Select Type</option>
           <option value="Laptop">Laptop</option>

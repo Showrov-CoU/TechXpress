@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   return (
     <div>
-      <div className="card card-compact bg-base-100 shadow-xl">
+      <div className="card-compact border-2 border-solid border-gray-400 dark:border-color-gray rounded-md overflow-hidden">
         <figure className="h-64">
           <img
             src={product.image}
             alt="Tech product"
-            className="w-full h-full"
+            className="w-full h-full  rounded-none"
           />
         </figure>
         <div className="card-body">
@@ -71,9 +71,7 @@ const Product = ({ product }) => {
           <div className="flex items-center justify-between">
             <div className="card-actions justify-end">
               <Link to={`/productdetails/${product._id}`}>
-                <button className="signbtn  text-neutralSilver">
-                  Details Product
-                </button>
+                <button className="signbtn  text-neutralSilver">Details</button>
               </Link>
             </div>
             <div className="card-actions justify-start">

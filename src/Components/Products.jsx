@@ -19,7 +19,7 @@ const Products = () => {
   //console.log(products);
 
   return (
-    <div>
+    <div className="bg-white dark:bg-color-primary-light text-neutralDGrey dark:text-white">
       <div className={products.length > 0 ? "w-100vw py-5" : ""}>
         {products.length > 0 ? (
           <div className="carousel carousel-center gap-5 bg-brandPrimary opacity-80 py-6 h-80">
@@ -38,33 +38,34 @@ const Products = () => {
                 ))}
               </>
             )}
-            {/* <div className="carousel-item">
-            <img src={im} alt="Pizza" />
-          </div>
-          <div className="carousel-item">
-            <img src={im} alt="Pizza" />
-          </div>
-          <div className="carousel-item">
-            <img src={im} alt="Pizza" />
-          </div> */}
           </div>
         ) : (
           <p></p>
         )}
       </div>
-      <div className="mx-[5%]">
+      <div className="mx-[5%] min-h-[50vh]">
         {loading ? (
-          <span className="block mx-auto mt-20 loading loading-dots loading-lg text-success"></span>
+          <span className="block mx-auto mt-40 loading loading-dots loading-lg text-success"></span>
         ) : (
-          <div>
+          <div className="">
             {products.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {products.map((product) => (
-                  <Product key={product._id} product={product}></Product>
-                ))}
+              <div>
+                <h1 className="text-center text-4xl font-bold text-brandPrimary">
+                  Our Products
+                </h1>
+                <p className="text-center pt-2 pb-5 md:px-[5%]">
+                  Our Products: Leading Tech from Apple, Google, Intel,
+                  Microsoft, Samsung. Discover the best in innovation and
+                  performance, all in one place.
+                </p>
+                <div className="pb-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
+                  {products.map((product) => (
+                    <Product key={product._id} product={product}></Product>
+                  ))}
+                </div>
               </div>
             ) : (
-              <h1 className="text-center mx-16 mt-20 text-brandPrimary text-4xl font-bold">
+              <h1 className="text-center mx-16 mt-36 text-brandPrimary text-4xl font-bold">
                 Currently, we don&apos;t have any products available under this
                 brand. Please explore our other brands for a wide selection of
                 tech and electronics.

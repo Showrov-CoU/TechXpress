@@ -13,7 +13,7 @@ const Home = () => {
   }, []);
   // console.log(brands);
   return (
-    <div className="bg-white dark:bg-color-primary">
+    <div className="bg-white dark:bg-color-primary-light">
       <div>
         <Banner></Banner>
       </div>
