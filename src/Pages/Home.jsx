@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BrandCard from "../Components/BrandCard";
 import Banner from "../Components/Banner";
 import AboutUs from "../Components/AboutUs";
+import Review from "../Components/Review";
 
 const Home = () => {
   const [brands, setBrands] = useState([]);
@@ -16,7 +17,9 @@ const Home = () => {
       <div>
         <Banner></Banner>
       </div>
-      <h1 className="text-center text-4xl font-bold pt-10 text-neutralDGrey dark:text-white">
+
+      {/* Our Brand  */}
+      <h1 className="text-center text-4xl font-bold pt-12 text-brandPrimary">
         Our Brands
       </h1>
       <p className="text-center pt-2 pb-5 md:px-[5%]">
@@ -29,7 +32,8 @@ const Home = () => {
         ))}
       </div>
 
-      <h1 className="text-center text-4xl font-bold pt-10 text-neutralDGrey dark:text-white">
+      {/* About Us */}
+      <h1 className="text-center text-4xl font-bold pt-12 text-brandPrimary">
         About Us
       </h1>
       <p className="pt-2 pb-5 px-[5%] md:px-[20%] text-justify">
@@ -38,8 +42,22 @@ const Home = () => {
         committed to offering you the best from the world of Apple, Google,
         Microsoft, Intel, and beyond.
       </p>
-      <div className="px-[3%] md:px-[5%]">
+      <div className="px-[5%]">
         <AboutUs></AboutUs>
+      </div>
+
+      {/* Review  */}
+      <h1 className="text-center text-4xl font-bold pt-14 text-brandPrimary">
+        Client Review
+      </h1>
+      <p className="pt-2 pb-5 px-[5%] md:px-[20%] text-justify">
+        At TechXpress, we are committed to providing our customers with the best
+        possible experience. That&apos;s why we love to hear from our customers
+        and learn about their experiences with our products and services. Here
+        are just a few reviews from our happy customers
+      </p>
+      <div className="px-[5%] pb-10">
+        <Review></Review>
       </div>
     </div>
   );
