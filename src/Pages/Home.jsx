@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BrandCard from "../Components/BrandCard";
+import Banner from "../Components/Banner";
 
 const Home = () => {
   const [brands, setBrands] = useState([]);
@@ -10,15 +11,18 @@ const Home = () => {
   }, []);
   // console.log(brands);
   return (
-    <div>
-      <h1 className="text-center text-3xl text-neutral font-bold">
+    <div className="bg-white dark:bg-color-primary">
+      <div>
+        <Banner></Banner>
+      </div>
+      <h1 className="text-center text-4xl font-bold pt-10 text-neutralDGrey dark:text-white">
         Our Brands
       </h1>
-      <p className="text-center">
+      <p className="text-center pt-2 pb-5 md:px[5%]">
         Leading the Way in Technology and Innovation, Exploring the Future, One
         Brand at a Time.
       </p>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="px-[5%] md:px[5%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {brands?.map((brand) => (
           <BrandCard key={brand._id} brand={brand}></BrandCard>
         ))}

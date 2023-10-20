@@ -6,9 +6,11 @@ import Footer from "../Shared/Footer";
 
 const Root = () => {
   return (
-    <div className="tracking-wider leading-relaxed text-neutralDGrey dark:bg-slate-500">
-      <Navbar></Navbar>
-      <div className="">
+    <div className="tracking-wider leading-relaxed text-neutralDGrey dark:text-white">
+      <div className="fixed top-0 left-0 right-0 z-10 ">
+        <Navbar></Navbar>
+      </div>
+      <div className="mt-16 md:mt-20">
         <Outlet></Outlet>
       </div>
       <div>

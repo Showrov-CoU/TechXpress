@@ -25,7 +25,7 @@ const Navbar = () => {
     },
   ];
 
-  function onWindowMatch() {
+  const onWindowMatch = () => {
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) && darkQuery.matches)
@@ -34,7 +34,7 @@ const Navbar = () => {
     } else {
       element.classList.remove("dark");
     }
-  }
+  };
   onWindowMatch();
   useEffect(() => {
     switch (theme) {
@@ -51,7 +51,7 @@ const Navbar = () => {
         onWindowMatch();
         break;
     }
-  }, [theme, element, onWindowMatch]);
+  }, [theme]);
   const handleLogout = () => {
     logOut()
       .then()
@@ -60,14 +60,14 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li className="mr-5 text-base font-medium">
+      <li className="mr-5 text-lg">
         <NavLink to="/">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>Home</span>
           )}
         </NavLink>
       </li>
-      <li className="mr-5 text-base font-medium">
+      <li className="mr-5 text-lg">
         <NavLink to="/addProduct">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>
@@ -76,14 +76,14 @@ const Navbar = () => {
           )}
         </NavLink>
       </li>
-      <li className="mr-5 text-base font-medium">
+      <li className="mr-5 text-lg">
         <NavLink to="/myCart">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>My Cart</span>
           )}
         </NavLink>
       </li>
-      <li className="mr-5 text-base font-medium">
+      <li className="mr-5 text-lg">
         <NavLink to="/contact">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>
@@ -95,7 +95,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar border-solid border-neutralDGrey bg-neutralSilver">
+    <div className="navbar border-solid border-neutralDGrey bg-neutralSilver dark:bg-color-primary-dark text-neutralDGrey dark:text-white px-[3%] md:px-[5%]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -116,7 +116,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {links}
           </ul>
@@ -126,11 +126,11 @@ const Navbar = () => {
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className=" menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
         {user ? (
-          <p className="text-sm font-semibold text-color-secondary mr-1">
+          <p className="text-sm font-semibold text-neutralDGrey dark:text-color-secondary mr-1">
             {user.displayName}
           </p>
         ) : (
