@@ -71,8 +71,14 @@ const ProductDetails = () => {
   //   const {photo,pname,bname,type,price,rating,description}
   //   console.log(clickedDetailsProduct);
   return (
-    <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl">
+    <div className="px-[5%] bg-white dark:bg-color-primary-light py-10 dark:text-white">
+      <h1 className="text-center text-4xl font-bold text-brandPrimary">
+        Product Details
+      </h1>
+      <p className="text-center pt-2 pb-5 md:px-[20%]">
+        {clickedDetailsProduct.description}
+      </p>
+      <div className="card lg:card-side shadow-xl border-2 border-solid border-gray-400 dark:border-color-gray rounded-md">
         <figure className="w-2/3">
           <img src={clickedDetailsProduct.image} alt="Album" />
         </figure>
