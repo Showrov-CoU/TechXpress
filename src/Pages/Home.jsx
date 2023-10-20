@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BrandCard from "../Components/BrandCard";
 import Banner from "../Components/Banner";
+import AboutUs from "../Components/AboutUs";
 
 const Home = () => {
   const [brands, setBrands] = useState([]);
@@ -18,7 +19,7 @@ const Home = () => {
       <h1 className="text-center text-4xl font-bold pt-10 text-neutralDGrey dark:text-white">
         Our Brands
       </h1>
-      <p className="text-center pt-2 pb-5 md:px[5%]">
+      <p className="text-center pt-2 pb-5 md:px-[5%]">
         Leading the Way in Technology and Innovation, Exploring the Future, One
         Brand at a Time.
       </p>
@@ -26,6 +27,19 @@ const Home = () => {
         {brands?.map((brand) => (
           <BrandCard key={brand._id} brand={brand}></BrandCard>
         ))}
+      </div>
+
+      <h1 className="text-center text-4xl font-bold pt-10 text-neutralDGrey dark:text-white">
+        About Us
+      </h1>
+      <p className="pt-2 pb-5 px-[5%] md:px-[20%] text-justify">
+        TechXpress is a dedicated team of tech enthusiasts driven by a common
+        mission: to simplify and enrich your tech experience. We&apos;re
+        committed to offering you the best from the world of Apple, Google,
+        Microsoft, Intel, and beyond.
+      </p>
+      <div className="px-[3%] md:px-[5%]">
+        <AboutUs></AboutUs>
       </div>
     </div>
   );
