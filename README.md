@@ -1,8 +1,28 @@
-# React + Vite
+## [Live Link](https://techxpress-eef92.web.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link: [https://techxpress-eef92.web.app](https://techxpress-eef92.web.app)
 
-Currently, two official plugins are available:
+## Features and Functionality
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. User Authentication and Registration:
+
+-Allow users to create an account and log in with their credentials or through social media accounts.
+-Implement robust user authentication and security measures to protect user data.
+
+2. Brand and Product Management:
+
+-Create dedicated sections for each brand (Google, Apple, Microsoft, Samsung, Intel, Sony) on the website.
+-Enable users to browse and view detailed information about products associated with each brand.
+-Implement user-friendly interfaces for adding, updating, and managing products within their accounts.
+
+3. Responsive Design:
+
+-Ensure that your website is responsive and works well on various devices and screen sizes, such as smartphones, tablets, and desktop computers.
+
+4. Shopping Cart and Checkout:
+
+-Implement a shopping cart feature that allows users to add products to their cart.
+
+5. User Account Management:
+
+Allow users to customize their profiles, including uploading profile pictures and changing personal information.
