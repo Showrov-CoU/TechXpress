@@ -7,7 +7,7 @@ const Root = () => {
   return (
     <div className="tracking-wider leading-relaxed text-neutralDGrey">
       <Navbar></Navbar>
-      <div className="mx-[5%]">
+      <div className="">
         <Outlet></Outlet>
       </div>
       <Toaster></Toaster>
