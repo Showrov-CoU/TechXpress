@@ -5,8 +5,9 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
+  // console.log(user, "private");
   const location = useLocation();
-  //   console.log(location);
+  // console.log(location);
   if (loading) {
     return (
       <span className="block mx-auto mt-20 loading loading-dots loading-lg text-success"></span>

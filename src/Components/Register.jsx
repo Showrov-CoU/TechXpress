@@ -39,13 +39,13 @@ const Register = () => {
             toast.success("Registration successful! You can now log in");
             e.target.reset();
             // navigate("/login");
-            // location.reload();
+            location.reload();
           })
           .catch((error) => {
             console.log(error.message);
             toast.success("Something is wrong! Please try again");
           });
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);

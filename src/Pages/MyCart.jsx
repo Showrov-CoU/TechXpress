@@ -1,14 +1,22 @@
-import { useLoaderData } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { Swal } from "sweetalert2/dist/sweetalert2";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 
 import "sweetalert2/dist/sweetalert2.min.css";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyCart = () => {
-  const loadCarts = useLoaderData();
-  const [carts, setCarts] = useState(loadCarts);
+  const { user, loading } = useContext(AuthContext);
+  console.log(user.email, "jdskjkds");
+  //console.log(loadCarts, "hello");
+  const [carts, setCarts] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3000/mycart/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setCarts(data));
+  }, [user.email]);
+  console.log(carts);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -42,9 +50,13 @@ const MyCart = () => {
   };
   return (
     <div className="pt-5 pb-10 px-[5%] min-h-[60vh] dark:bg-color-primary-light dark:text-neutralGrey">
-      <h1 className=" pb-2 text-center text-3xl font-bold">
-        Total: {carts.length}
-      </h1>
+      {loading ? (
+        ""
+      ) : (
+        <h1 className=" pb-2 text-center text-3xl font-bold">
+          Total: {carts.length}
+        </h1>
+      )}
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

@@ -1,72 +1,89 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 
 import "sweetalert2/dist/sweetalert2.min.css";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 // import "sweetalert2/src/sweetalert2.scss";
 // import "sweetalert2.min.css";
 
 const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
   const clickedDetailsProduct = useLoaderData();
-  const [existingCart, setExistingCart] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:3000/mycart`)
-      .then((res) => res.json())
-      .then((result) => setExistingCart(result));
-  }, []);
+  // const [existingCart, setExistingCart] = useState([]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/mycart/${user.email}`)
+  //     .then((res) => res.json())
+  //     .then((result) => setExistingCart(result));
+  // }, []);
+
+  console.log(user.email);
+  const { image, productName, brandName, type, price, rating, description } =
+    clickedDetailsProduct;
+  const currentUserAddCartProduct = {
+    email: user.email,
+    image,
+    productName,
+    brandName,
+    type,
+    price,
+    rating,
+    description,
+  };
+  // console.log(currentUserAddCartProduct);
   // console.log(existingCart);
-  const handleCart = (id) => {
-    const exist = existingCart.find((cart) => cart._id === id);
-    if (exist) {
-      Swal.fire({
-        title: "This item is already in your cart.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+  const handleCart = () => {
+    //const exist = existingCart.find((cart) => cart._id === id);
+    // if (exist) {
+    //   Swal.fire({
+    //     title: "This item is already in your cart.",
+    //     showClass: {
+    //       popup: "animate__animated animate__fadeInDown",
+    //     },
+    //     hideClass: {
+    //       popup: "animate__animated animate__fadeOutUp",
+    //     },
+    //   });
+    // } else {
+    //console.log("nai");
+    fetch("http://localhost:3000/mycart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(currentUserAddCartProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data)
+        if (data.insertedId) {
+          Swal.fire({
+            title:
+              "Congratulations! You've successfully added the item to your cart.",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
+        } else {
+          Swal.fire({
+            title: "Item not added. Please try again.",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        }
       });
-    } else {
-      console.log("nai");
-      fetch("http://localhost:3000/mycart", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(clickedDetailsProduct),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          //console.log(data)
-          if (data.insertedId) {
-            Swal.fire({
-              title:
-                "Congratulations! You've successfully added the item to your cart.",
-              showClass: {
-                popup: "animate__animated animate__fadeInDown",
-              },
-              hideClass: {
-                popup: "animate__animated animate__fadeOutUp",
-              },
-            }).then((result) => {
-              if (result.isConfirmed) {
-                location.reload();
-              }
-            });
-          } else {
-            Swal.fire({
-              title: "Item not added. Please try again.",
-              showClass: {
-                popup: "animate__animated animate__fadeInDown",
-              },
-              hideClass: {
-                popup: "animate__animated animate__fadeOutUp",
-              },
-            });
-          }
-        });
-    }
+    //}
   };
   //   const {photo,pname,bname,type,price,rating,description}
   //   console.log(clickedDetailsProduct);
@@ -107,7 +124,7 @@ const ProductDetails = () => {
           <p className="text-justify">{clickedDetailsProduct.description}</p>
           <div className="card-actions justify-end">
             <button
-              onClick={() => handleCart(clickedDetailsProduct._id)}
+              onClick={handleCart}
               className="signbtn text-neutralSilver w-full"
             >
               Add to Cart
