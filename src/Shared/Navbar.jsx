@@ -47,9 +47,11 @@ const Navbar = () => {
         localStorage.setItem("theme", "light");
         break;
       default:
+        localStorage.removeItem("theme", "dark");
+        onWindowMatch();
         break;
     }
-  }, [theme, element]);
+  }, [theme, element, onWindowMatch]);
   const handleLogout = () => {
     logOut()
       .then()
