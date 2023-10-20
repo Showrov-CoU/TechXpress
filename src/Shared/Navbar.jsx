@@ -1,11 +1,55 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo-removebg.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import defaultUserPhoto from "../assets/user.png";
+// import { CiDark, CiLight } from "react-icons/ci";
+
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+  const element = document.documentElement;
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  // console.log(themeQuery);
+  const option = [
+    {
+      icon: "sunny",
+      text: "light",
+    },
+    {
+      icon: "moon",
+      text: "dark",
+    },
+  ];
+
+  function onWindowMatch() {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+    }
+  }
+  onWindowMatch();
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        break;
+      default:
+        break;
+    }
+  }, [theme, element]);
   const handleLogout = () => {
     logOut()
       .then()
@@ -107,6 +151,17 @@ const Navbar = () => {
         {/* <Link to="/login">
           <button className="signbtn text-neutralSilver">Login</button>
         </Link> */}
+        <div className="flex items-center gap-2 px-2">
+          {option?.map((opt) => (
+            <button
+              key={opt.text}
+              onClick={() => setTheme(opt.text)}
+              className={` ${theme === opt.text && "text-sky-600"}`}
+            >
+              <ion-icon name={opt.icon}></ion-icon>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 const Root = () => {
   return (
-    <div className="tracking-wider leading-relaxed text-neutralDGrey">
+    <div className="tracking-wider leading-relaxed text-neutralDGrey dark:bg-slate-500">
       <Navbar></Navbar>
       <div className="">
         <Outlet></Outlet>
