@@ -67,7 +67,7 @@ const Products = () => {
                 </div>
               </div>
             ) : (
-              <h1 className="text-center mx-16 mt-36 text-brandPrimary text-4xl font-bold">
+              <h1 className="text-justify md:mx-16 pt-20 pb-10 md:pt-36 md:pb-20 text-brandPrimary  text-xl md:text-4xl font-bold">
                 Currently, we don&apos;t have any products available under this
                 brand. Please explore our other brands for a wide selection of
                 tech and electronics.
