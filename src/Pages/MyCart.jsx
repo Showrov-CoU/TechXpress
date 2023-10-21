@@ -12,7 +12,9 @@ const MyCart = () => {
   //console.log(loadCarts, "hello");
   const [carts, setCarts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/mycart/${user.email}`)
+    fetch(
+      `https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/mycart/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setCarts(data));
   }, [user.email]);
@@ -31,9 +33,12 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/mycart/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/mycart/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((result) => {
             console.log(result);

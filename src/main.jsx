@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         path: "/product/:brandName",
         element: <Products></Products>,
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:3000/product/${params.brandName}`),
+        //   fetch(`https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/product/${params.brandName}`),
       },
       {
         path: "/productdetails/:id",
@@ -50,7 +50,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/productdetails/${params.id}`),
+          fetch(
+            `https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/productdetails/${params.id}`
+          ),
       },
 
       {
@@ -69,7 +71,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:3000/mycart/${params.email}`),
+        //   fetch(`https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/mycart/${params.email}`),
       },
       {
         path: "/update/:id",
@@ -79,7 +81,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/productdetails/${params.id}`),
+          fetch(
+            `https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/productdetails/${params.id}`
+          ),
       },
       {
         path: "/contact",

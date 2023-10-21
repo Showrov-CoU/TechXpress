@@ -151,12 +151,12 @@ const Navbar = () => {
         {/* <Link to="/login">
           <button className="signbtn text-neutralSilver">Login</button>
         </Link> */}
-        <div className="flex items-center justify-center gap-2 px-2">
+        <div className="flex flex-col md:flex-row items-center justify-center  md:gap-2 pl-1 md:px-2">
           {option?.map((opt) => (
             <button
               key={opt.text}
               onClick={() => setTheme(opt.text)}
-              className={` ${theme === opt.text && "text-sky-600 text-xl"}`}
+              className={` ${theme === opt.text && "text-sky-600 text-lg"}`}
             >
               <ion-icon name={opt.icon}></ion-icon>
             </button>

@@ -36,13 +36,16 @@ const UpdateProduct = () => {
       description,
     };
     // console.log(updateProduct);
-    fetch(`http://localhost:3000/product/${updateData._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateProduct),
-    })
+    fetch(
+      `https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/product/${updateData._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

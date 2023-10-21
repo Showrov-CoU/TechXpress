@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const clickedDetailsProduct = useLoaderData();
   // const [existingCart, setExistingCart] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:3000/mycart/${user.email}`)
+  //   fetch(`https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/mycart/${user.email}`)
   //     .then((res) => res.json())
   //     .then((result) => setExistingCart(result));
   // }, []);
@@ -46,13 +46,16 @@ const ProductDetails = () => {
     //   });
     // } else {
     //console.log("nai");
-    fetch("http://localhost:3000/mycart", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(currentUserAddCartProduct),
-    })
+    fetch(
+      "https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/mycart",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUserAddCartProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         //console.log(data)

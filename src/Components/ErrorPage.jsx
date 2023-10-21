@@ -3,7 +3,7 @@ import { Link, useRouteError } from "react-router-dom";
 const ErrorPage = () => {
   const error = useRouteError();
   return (
-    <div>
+    <div className="bg-neutralSilver text-neutralDGrey ">
       {error.status === 404 && (
         <div className="h-screen flex flex-col gap-5 justify-center items-center">
           <p className="text-3xl font-extrabold">oppps..!! Page Not Found</p>

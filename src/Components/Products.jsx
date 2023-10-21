@@ -9,7 +9,9 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setloding] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:3000/product/${brandName}`)
+    fetch(
+      `https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/product/${brandName}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

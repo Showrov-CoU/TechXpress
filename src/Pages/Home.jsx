@@ -7,7 +7,9 @@ import Review from "../Components/Review";
 const Home = () => {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/brand")
+    fetch(
+      "https://tech-xpress-server-h0fi5pzmo-ashikur-rahman-showrovs-projects.vercel.app/brand"
+    )
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);
