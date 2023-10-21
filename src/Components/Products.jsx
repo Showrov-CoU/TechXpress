@@ -53,7 +53,7 @@ const Products = () => {
                 <h1 className="text-center text-4xl font-bold text-brandPrimary">
                   Our Products
                 </h1>
-                <p className="text-center pt-2 pb-5 md:px-[5%]">
+                <p className="text-justify pt-2 pb-5 md:px-[20%]">
                   Our Products: Leading Tech from Apple, Google, Intel,
                   Microsoft, Samsung. Discover the best in innovation and
                   performance, all in one place.

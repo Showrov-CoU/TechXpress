@@ -92,14 +92,14 @@ const ProductDetails = () => {
       <h1 className="text-center text-4xl font-bold text-brandPrimary">
         Product Details
       </h1>
-      <p className="text-center pt-2 pb-5 md:px-[20%]">
+      <p className="text-justify pt-2 pb-5 md:px-[20%]">
         {clickedDetailsProduct.description}
       </p>
       <div className="card lg:card-side shadow-xl border-2 border-solid border-gray-400 dark:border-color-gray rounded-md">
-        <figure className="w-2/3">
+        <figure className="md:w-2/3">
           <img src={clickedDetailsProduct.image} alt="Album" />
         </figure>
-        <div className="card-body w-1/3">
+        <div className="card-body md:w-1/3">
           <h2 className="card-title">{clickedDetailsProduct.productName}</h2>
           <h2 className="text-sm font-bold">
             <span>

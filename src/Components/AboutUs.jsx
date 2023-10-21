@@ -21,7 +21,7 @@ const AboutUs = () => {
           <h1 className="text-center text-xl md:text-2xl font-bold">
             Who are we?
           </h1>
-          <p className="text-sm md:text-base">
+          <p className="text-sm text-justify md:text-base">
             At TechXpress, we are a passionate team of tech enthusiasts
             dedicated to bringing you the latest innovations from industry
             giants like Apple, Google, Microsoft, and Intel.
@@ -31,7 +31,7 @@ const AboutUs = () => {
           <h1 className="text-center text-xl md:text-2xl font-bold">
             Our Vision
           </h1>
-          <p className="text-sm md:text-base">
+          <p className="text-sm text-justify md:text-base">
             To be the leading bridge between technology and people, fostering a
             world where everyone can effortlessly embrace the power of Apple,
             Google, Microsoft, Intel, and more, enriching their lives through
@@ -42,7 +42,7 @@ const AboutUs = () => {
           <h1 className="text-center text-xl md:text-2xl font-bold">
             Our Mission
           </h1>
-          <p className="text-sm md:text-base">
+          <p className="text-sm text-justify md:text-base">
             Our mission is to simplify your tech journey, offering cutting-edge
             products and expert guidance that align with our vision of making
             technology accessible and empowering for all.

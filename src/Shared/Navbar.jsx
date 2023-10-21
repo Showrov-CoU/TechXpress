@@ -60,14 +60,14 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li className="mr-5 text-lg">
+      <li className="mr-5 text-base">
         <NavLink to="/">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>Home</span>
           )}
         </NavLink>
       </li>
-      <li className="mr-5 text-lg">
+      <li className="mr-5 text-base">
         <NavLink to="/addProduct">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>
@@ -76,19 +76,17 @@ const Navbar = () => {
           )}
         </NavLink>
       </li>
-      <li className="mr-5 text-lg">
+      <li className="mr-5 text-base">
         <NavLink to="/myCart">
           {({ isActive }) => (
             <span className={isActive ? "text-brandPrimary" : ""}>My Cart</span>
           )}
         </NavLink>
       </li>
-      <li className="mr-5 text-lg">
+      <li className="mr-5 text-base">
         <NavLink to="/contact">
           {({ isActive }) => (
-            <span className={isActive ? "text-brandPrimary" : ""}>
-              Contact Us
-            </span>
+            <span className={isActive ? "text-brandPrimary" : ""}>Contact</span>
           )}
         </NavLink>
       </li>
@@ -98,10 +96,10 @@ const Navbar = () => {
     <div className="navbar border-solid border-neutralDGrey bg-neutralSilver dark:bg-color-primary-dark text-neutralDGrey dark:text-white px-[3%] md:px-[5%]">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="p-0 btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 p-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -116,7 +114,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="dropdown-content space-y-1 mt-3 z-[1] p-2 shadow bg-neutralSilver dark:bg-color-primary-light text-neutralDGrey dark:text-white rounded-box w-52"
           >
             {links}
           </ul>
@@ -130,7 +128,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <p className="text-sm font-semibold text-neutralDGrey dark:text-color-secondary mr-1">
+          <p className="text-sm font-semibold text-neutralDGrey dark:text-color-secondary mr-1 hidden md:block">
             {user.displayName}
           </p>
         ) : (
@@ -153,12 +151,12 @@ const Navbar = () => {
         {/* <Link to="/login">
           <button className="signbtn text-neutralSilver">Login</button>
         </Link> */}
-        <div className="flex items-center gap-2 px-2">
+        <div className="flex items-center justify-center gap-2 px-2">
           {option?.map((opt) => (
             <button
               key={opt.text}
               onClick={() => setTheme(opt.text)}
-              className={` ${theme === opt.text && "text-sky-600"}`}
+              className={` ${theme === opt.text && "text-sky-600 text-xl"}`}
             >
               <ion-icon name={opt.icon}></ion-icon>
             </button>
