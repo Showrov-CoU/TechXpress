@@ -25,3 +25,6 @@ Implement a shopping cart feature that allows users to add products to their car
 `5.` User Account Management:
 
 Allow users to customize their profiles, including uploading profile pictures and changing personal information.
+
+## Technology Used
+- TailwindCSS, Daisy UI, ReactJS, Firebase, NodeJS, ExpressJS, mongoDB
