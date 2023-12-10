@@ -16,7 +16,7 @@ Create dedicated sections for each brand (Google, Apple, Microsoft, Samsung, Int
 
 `3.` Responsive Design:
 
-Ensure that your website is responsive and works well on various devices and screen sizes, such as smartphones, tablets, and desktop computers.
+This website is responsive and works well on various devices and screen sizes, such as smartphones, tablets, and desktop computers.
 
 `4.` Shopping Cart and Checkout:
 
